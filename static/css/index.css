@@ -1,0 +1,269 @@
+* {
+  font-family: serif;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+.header {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  text-align: left;
+  background: -moz-linear-gradient(top left, "#fff, #5cb7b3");
+  background: -webkit-linear-gradient(top left, #fff, #5cb7b3);
+  background: linear-gradient(top left, #fff, #5cb7b3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  color: #afadad;
+  margin-top: 100px;
+}
+
+.span-img span,
+.span-img img {
+  vertical-align: middle;
+}
+
+.container {
+  display: flex;
+}
+
+.left-container {
+  flex: 1;
+  padding: 10px;
+  border: 4px solid #5cb7b3;
+  margin:5px;
+  height: 100%;
+  min-width: 215px;
+}
+
+.center-container {
+  flex: 3;
+  padding: 5px;
+}
+
+.right-container {
+  flex: 1;
+  padding: 10px;
+  border: 4px solid #5cb7b3;
+  margin: 5px;
+  height: 100%;
+}
+
+#folders {
+  position: relative;
+  min-height: 500px;
+}
+
+.folder-prop {
+}
+
+.folder {
+  cursor: pointer;
+}
+
+.folder:hover {
+  background-color: #ffb0b069;
+}
+
+#_title {
+  font-size: 35px;
+  height: 50px;
+}
+
+.content-container {
+  border: 4px solid #5cb7b3;
+  margin-top: 10px;
+}
+
+.content-container-title {
+  background-color: #5cb7b3;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.accordion {
+  display: none;
+  transition: all 100ms 0s ease;
+}
+
+.ansers {
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 1px 5px darkgrey;
+  border-radius: 5px;
+  margin: 5px;
+  flex: 1;
+}
+
+.anser-input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.anser-color {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+}
+
+.ansers-row {
+  display: flex;
+}
+
+.selected-folder {
+  background-color: #ffb0b0ad;
+}
+
+.ansers-box {
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.ansers-box:hover {
+  background-color: rgb(247, 144, 144);
+}
+
+.selected-ansers-box {
+  background-color: rgb(248, 106, 106);
+}
+
+.btn {
+  background-color: #d8edff;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px grey;
+  cursor: pointer;
+  min-width: 100px;
+  text-shadow: 1px 1px darkgrey;
+  color:#f1f0f0;
+}
+
+.btn:hover {
+  background-color: #aad7ff;
+}
+
+.btn:active {
+  background-color: #8bc5f8;
+}
+
+.accordion {
+  padding:10px;
+}
+
+.anser-register-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#add-category {
+  position: absolute;
+  top: -65px;
+  left: 200px;
+  width: 300px;
+  height: 200px;
+  background: #deeaff;
+  border-radius: 10px;
+  border: 3px solid #90aee4;
+  box-shadow: 0 5px 10px darkgrey;
+  opacity: 0;
+  display: none;
+  transition: all 1s 0s ease;
+  padding: 10px;
+}
+
+#add-category-close {
+  background: #fff;
+  width: 44px;
+  text-align: center;
+  border-radius: 100px;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 5px darkgrey;
+}
+
+#add-category-close:hover {
+  box-shadow: 0 0px 1px darkgrey;
+}
+
+.children-folder {
+  display: none;
+  margin-left: 10px;
+}
+
+.question-list-text {
+  cursor: pointer;
+  background-color: #5672a930;
+  margin-bottom:5px;
+}
+
+#question-anser-image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #0000009e;
+  overflow-y: auto;
+}
+
+.folder {
+  font-size: 12px;
+}
+
+#children-folder-1 {
+  border-left: 2px solid darkgray;
+  height: 226px;
+}
+
+#children-folder-1 >.folder {
+  display: flex;
+  align-items: center;
+}
+#children-folder-1 >.folder:before {
+  border-top: 2px solid darkgray;
+  content: "";
+  width: 5px;
+  margin-right: 3px;
+}
+
+#children-folder-0  {
+  border-left: 2px solid darkgray;
+  height: 11px;
+}
+
+#children-folder-0 >.folder {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+#children-folder-0 >.folder:before {
+  border-top: 2px solid darkgray;
+  content: "";
+  width: 5px;
+  margin-right: 3px;
+}

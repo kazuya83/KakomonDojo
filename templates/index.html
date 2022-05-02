@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>応用情報</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./static/js/jquery.js"></script>
+    <script src="./static/js/jquery.cookie.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div style="font-size:30px;text-shadow: 3px 3px #c7c6c6c7;">応用情報</div>
+    </div>
+
+    <div class="container">
+        <div class="left-container">
+            <div id="folders" class="span-img">
+                <div class="folder" id="0" close="1" onclick="clickFolder(0)" style="height: 23px;">
+                    <span style="vertical-align: top;">全体</span>
+                    <img src="./static/img/close_folder.png" style="vertical-align: top;width:25px;transform: scale(0.8, 0.8);margin-top: -3px;">
+                </div>
+                <div id="children-folder-0" class="children-folder">
+                    <div class="folder" id="1" close="1" onclick="clickFolder(1)">
+                        <span>応用情報</span>
+                        <img src="./static/img/close_folder.png" style="width:25px;transform: scale(0.8, 0.8);">
+                    </div>
+                    <div id="children-folder-1" class="children-folder">
+                        <div class="folder" id="2" close="1" onclick="clickFolder(2)">
+                            <span>経営戦略</span>
+                        </div>
+                        <div id="children-folder-2">
+                            
+                        </div>
+                        <div class="folder" id="3" close="1" onclick="clickFolder(3)">
+                            <span>情報戦略</span>
+                        </div>
+                        <div id="children-folder-3">
+                            
+                        </div>
+                        <div class="folder" id="4" close="1" onclick="clickFolder(4)">
+                            <span>戦略立案・コンサルティング技法</span>
+                        </div>
+                        <div id="children-folder-4">
+                            
+                        </div>
+                        <div class="folder" id="5" close="1" onclick="clickFolder(5)">
+                            <span>システムアーキテクチャ</span>
+                        </div>
+                        <div id="children-folder-5">
+                            
+                        </div>
+                        <div class="folder" id="6" close="1" onclick="clickFolder(6)">
+                            <span>ネットワーク</span>
+                        </div>
+                        <div id="children-folder-6">
+                            
+                        </div>
+                        <div class="folder" id="7" close="1" onclick="clickFolder(7)">
+                            <span>データベース</span>
+                        </div>
+                        <div id="children-folder-7">
+                            
+                        </div>
+                        <div class="folder" id="8" close="1" onclick="clickFolder(8)">
+                            <span>組込みシステム開発</span>
+                        </div>
+                        <div id="children-folder-8">
+                            
+                        </div>
+                        <div class="folder" id="9" close="1" onclick="clickFolder(9)">
+                            <span>情報システム開発</span>
+                        </div>
+                        <div id="children-folder-9">
+                            
+                        </div>
+                        <div class="folder" id="10" close="1" onclick="clickFolder(10)">
+                            <span>プログラミング（アルゴリズム）</span>
+                        </div>
+                        <div id="children-folder-10">
+                            
+                        </div>
+                        <div class="folder" id="11" close="1" onclick="clickFolder(11)">
+                            <span>情報セキュリティ</span>
+                        </div>
+                        <div id="children-folder-11">
+                            
+                        </div>
+                        <div class="folder" id="12" close="1" onclick="clickFolder(12)">
+                            <span>プロジェクトマネジメント</span>
+                        </div>
+                        <div id="children-folder-12">
+                            
+                        </div>
+                        <div class="folder" id="13" close="1" onclick="clickFolder(13)">
+                            <span>サービスマネジメント</span>
+                        </div>
+                        <div id="children-folder-13">
+                            
+                        </div>
+
+                        <div class="folder" id="14" close="1" onclick="clickFolder(14)">
+                            <span>システム監査</span>
+                        </div>
+                        <div id="children-folder-14">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="folder-prop">
+                <button class="btn" style="display:none;">フォルダの追加</button>
+            </div>
+        </div>
+
+        <div class="center-container">
+            <div style="border: 4px solid #5cb7b3;padding: 10px;">
+                <div id="_title">全体</div>
+            </div>
+
+            <div id="solve-container" class="content-container" style="display: none">
+                <div id="solve-title" class="content-container-title" onclick="openAccordion(0);getQuestion();">問題を解く</div>
+                <div id="accordion0" class="accordion">
+                    <div id="questions-list-alert" style="display: none">まだ問題は登録されていません。</div>
+                    <div id="questions-list" style="position: relative;">
+                        <div id="questions-list-correct-rate" style="position: absolute;top:5px;right:5px;font-size:25px;font-weight:bold;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="register-container" class="content-container" style="display: none">
+                <div id="register-title" class="content-container-title" onclick="openAccordion(1)">問題を登録する</div>
+                <div id="accordion1" class="accordion">
+                    <!-- <div>
+                        <div class="anser-register-title">カテゴリー</div>
+                        <label><input type="radio" name="category" value="0" checked>カテゴリなし</label>
+                        <div style="position: relative;">
+                            <button  class="span-img btn" onclick="showCategoryPop()">
+                                <img src="/static/img/plus.png" style="width: 25px;cursor: pointer;">
+                                <span>カテゴリー追加</span>
+                            </button>
+
+                            <div id="add-category">
+                                <div id="add-category-close" onclick="closeCategoryPop()">×</div>
+                                <div style="    font-size: 25px;font-weight: bold;">カテゴリ追加</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div>
+                        <div class="anser-register-title">問題</div>
+                        <div>
+                            <textarea style="resize:vertical;height: 100px;width:80%;" id="question"></textarea>
+                        </div>
+
+                        <div id="question-alert" style="display:none">
+                            <div style="font-weight: bold;color: red;margin-bottom: 15px;">問題は必ず入力してください。</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="anser-register-title">回答方法</div>
+                        <div>
+                            <label><input type="radio" name="anser-method" checked="true" value="1">選択形式</label>
+                            <label><input type="radio" name="anser-method" value="2">数値</label>
+                            <label><input type="radio" name="anser-method" value="3">自由回答</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="anser-register-title">回答</div>
+                        <div>
+                            <div class="ansers-row">
+                                <div class="ansers"  id="ansers-1" style="background-color:#ce4040;">
+                                    <div>
+                                        <input type="color" value="#ce4040" id="ansers-color-1" class="anser-color" onchange="setColorAnsers('1')">
+                                        <input type="text" value="ア" class="anser-input">
+                                    </div>
+                                    <textarea style="resize:none;height: 100px;width:80%;" placeholder="選択形式の回答内容を入力" required></textarea>
+                                </div>
+
+                                <div class="ansers"  id="ansers-2" style="background-color:#3d4aff;">
+                                    <div>
+                                        <input type="color" value="#3d4aff" id="ansers-color-2" class="anser-color" onchange="setColorAnsers('2')">
+                                        <input type="text" value="イ" class="anser-input">
+                                    </div>
+                                    <textarea style="resize:none;height: 100px;width:80%;" placeholder="選択形式の回答内容を入力" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="ansers-row">
+                                <div class="ansers" id="ansers-3" style="background-color:#40ce77;">
+                                    <div>
+                                        <input type="color" value="#40ce77" id="ansers-color-3" class="anser-color" onchange="setColorAnsers('3')">
+                                        <input type="text" value="ウ" class="anser-input">
+                                    </div>
+                                    <textarea style="resize:none;height: 100px;width:80%;" placeholder="選択形式の回答内容を入力" required></textarea>
+                                </div>
+
+                                <div class="ansers" id="ansers-4" style="background-color:#ffe53d;">
+                                    <div>
+                                        <input type="color" value="#ffe53d" id="ansers-color-4" class="anser-color" onchange="setColorAnsers('4')">
+                                        <input type="text" value="エ" class="anser-input">
+                                    </div>
+                                    <textarea style="resize:vertical;height: 100px;width:80%;" placeholder="選択形式の回答内容を入力" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="anser-register-title">解答、解説</div>
+                        <div>
+                            <div>※複数選択不可</div>
+                            <div style="display: flex;">
+                                <div id="ansers-box-1" class="ansers-box" onclick="selectedAnser(1)">ア</div>
+                                <div id="ansers-box-2" class="ansers-box" onclick="selectedAnser(2)">イ</div>
+                                <div id="ansers-box-3" class="ansers-box" onclick="selectedAnser(3)">ウ</div>
+                                <div id="ansers-box-4" class="ansers-box" onclick="selectedAnser(4)">エ</div>
+                            </div>
+
+                            <div id="anser-alert" style="display:none">
+                                <div style="font-weight: bold;color: red;margin-bottom: 15px;">回答は最低１つ選択してください。</div>
+                            </div>
+                            <textarea id="commentary" style="resize:none;height: 100px;width:80%;"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn" onclick="regiseter()">問題を登録</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-container" id="right-container">
+            <div style="font-size: 25px;border-bottom: 3px solid #5cb7b3;margin-bottom:10px;">正答率ワースト</div>
+            <div id="correct-rate-dashboard"></div>
+        </div>
+    </div>
+
+    <div class="footer">© 2021 Analysis Code</div>
+
+    <div id="question-anser-image" style="display: none">
+
+    </div>
+
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

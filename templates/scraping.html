@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>過去問道場からスクレイピング</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./static/js/jquery.js"></script>
+    <script src="./static/js/jquery.cookie.js"></script>
+</head>
+<body>
+    <div>過去問道場からスクレピング</div>
+
+    
+    <div>
+        <label>過去問道場の問題対象</label>
+        <select id="selectKakomonTargetList"></select>
+    </div>
+
+    <div>
+        <label>自身サイトの問題連携対象</label>
+        <select id="selectOwnTargetList"></select>
+    </div>
+
+    <div>
+        <button onclick="goScraiping()">スクレイピング実行</button>
+    </div>
+
+    <div id="result" style="display:none;color:red;">
+        <label>スクレイピング完了</label>
+    </div>
+
+    <script src="/static/js/scraping.js"></script>
+</body>
+</html>
